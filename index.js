@@ -42,7 +42,13 @@ async function invokeAction({ action, id, name, email, phone }) {
       const removeContact = await contactsOperations.removeContact(id);
       console.log(removeContact);
       break;
-
+    case "updateById":
+      const updateContacts = await contactsOperations.updateContacts(id, data);
+      if (!updateProduct) {
+        throw new Error(`Product with id=${id} not found`);
+      }
+      console.log(updateProduct);
+      break;
     default:
       console.warn("\x1B[31m Unknown action type!");
   }
